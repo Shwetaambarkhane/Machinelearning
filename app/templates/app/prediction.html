@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home - TRA</title>
+	<meta charset="utf-8">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/all.min.css' %}">
+	<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+	<style type="text/css">
+		body{
+			background-color: solid grey;
+			height:100%;
+    		width: 100%;
+    		padding-bottom: 2%;
+		}
+		.left-pan{
+			background-color: #333;
+			height:100%;
+			width: 100%;
+			color: whitesmoke;
+			min-height: 800px;
+		}
+		.nav{
+			margin-top: 50%;
+		}
+		.nav a{
+			display: block;
+			width: 100%;
+			height: 40px;
+			text-align: center;
+			padding: 10px;
+			text-decoration: none;
+			color: whitesmoke;
+			transition: 0.3s;
+		}
+		.nav a:hover,
+		.nav a:focus{
+			background-color: #444;
+		}
+		.nav .active,
+		.nav .active:hover,
+		.nav .active:focus{
+			background-color: black;
+			color:whitesmoke;
+		}
+		.right-pan{
+			padding: 0 2%;
+		}
+		.right-pan h2{
+			padding: 0;
+			margin: 0;
+			text-align: center;
+			background-color:#F0FFF0;
+			width: 100%;
+			color:#333;
+		}
+		.right-pan .graphs .row{
+			padding-top: 5px;
+		}
+		.right-pan .col-sm-2{
+			padding: 0;
+		}
+		.right-pan .stats{
+			text-align: center;
+			color: #444;
+		}
+		.right-pan .stats{
+			padding: 5% 0 5% 0;
+			width: 100%;
+			border-right: 2px solid #CCC;
+			background-color: whitesmoke;
+			min-height: 75px;
+		}
+		.right-pan .stats p{
+			font-size: 10px;
+			padding: 0;
+			margin: 0;
+		}
+		.right-pan .stats div{
+			font-size: 15px;
+			font-weight: bold;
+			padding: 0 1% 0 1%;
+			margin: 0;
+		}
+		.card{
+			width: 100%;
+			background-color: white;
+			border:1px solid whitesmoke;
+			margin: 5px 0 0 0 ;
+			padding: 1%;
+		}
+		.card h2{
+			font-size: 18px;
+			font-weight: bold;
+			background-color: white;
+		}
+		.card form{
+			text-align: center;
+		}
+		.card input[type=text],
+		.card select{
+			width: 300px;
+			height: 30px;
+			background-color: white;
+			padding: 0 0 0 1%;
+		}
+		.card input[type=submit]{
+			background-color: palegreen;
+			height: 30px;
+			border:none;
+			width: 150px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-2" style="padding: 0">
+				<div class="left-pan">
+					<img src="{% static 'media/logo.png' %}" width="100%" style="border:5px solid #333;">
+					<div class="nav">
+						<a href="../index">HOME</a>
+						<a href="../index1">DASHBOARD</a>
+						<a href=""  class="active">PREDICTION</a>
+		
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-10" style="padding: 0">
+				<div class="right-pan">
+					<div class="row">
+						<div class="card">
+							<h2>Prediction Input</h2>
+							<hr style="margin: 1% 0 1% 0">
+							<form>
+								<input type="text" name="name of song" placeholder="Enter name of song ">
+								<select name="genre">
+									<option value="-1">---SELECT GENRE OF SONG---</option>
+									<option value="0">LOVE</option>
+									<option value="1">LIFE</option>
+									<option value="2">DEVOTIONAL</option>
+									<option value="3">PARTY</option>
+									<option value="4">POP</option>
+									<option value="5">OTHERS</option>
+								</select>
+								<select name="SINGER">
+									<option value="-1">---SELECT SINGER---</option>
+									<option value="0">ADELE</option>
+									<option value="1">AJAY-ATUL</option>
+									<option value="2">ALKA YAGNIK</option>
+									<option value="3">ANAND SHINDE</option>
+									<option value="4">ANIL ARUN</option>
+									<option value="5">ANIL MOHILE</option>
+									<option value="0">ANURADHA PAUDWAL</option>
+									<option value="1">ARIANA GRANDE</option>
+									<option value="2">ARIJIT SINGH</option>
+									<option value="3">ARUN PAUDWAL</option>
+									<option value="4">ASHA BHOSALE</option>
+									<option value="5">ASHISH SARDANA</option>
+									<option value="0">ATIF ASLAM</option>
+									<option value="1">AVRIL LAVIGNE</option>
+									<option value="2">BADSHAH</option>
+									<option value="3">BEYONCE</option>
+									<option value="4">BOYS LIKE GIRLS</option>
+									<option value="5">DILJIT DOSANJH</option>
+									<option value="0">DILPREET DHILLON</option>
+									<option value="1">ED SHEERAN</option>
+									<option value="2">EMINEM</option>
+									<option value="3">GURU RANDHAWA</option>
+									<option value="4">HARDY SANDHU</option>
+									<option value="5">HIMESH RESHAMMIYA</option>
+									<option value="0">JUSTIN BIEBER</option>
+									<option value="1">KAILASH KHAIR</option>
+									<option value="2">KANIKA KAPOOR</option>
+									<option value="3">KISHOR KUMAR</option>
+									<option value="4">KUMAR SANU</option>
+									<option value="5">LATA MANGESHKAR</option>
+									<option value="0">MARSHMELLO</option>
+									<option value="1">MIKA SINGH</option>
+									<option value="2">DEVOTIONAL</option>
+									<option value="3">MOHAMMED RAFI</option>
+									<option value="4">NAUMAN KHALID</option>
+									<option value="5">NEHA KAKKAR</option>
+									<option value="0">NILESH MOHARIR</option>
+									<option value="1">NITIN MORAJKAR</option>
+									<option value="2">OTHERS</option>
+									<option value="3">RAHAT FATEH ALI KHAN</option>
+									<option value="4">RIHANNA</option>
+									<option value="5">S. P. BALASUBRAHMANYAM</option>
+									<option value="0">SELENA GOMEZ</option>
+									<option value="1">SHAAN</option>
+									<option value="2">SHANKAR MAHADEVAN</option>
+									<option value="3">SHREYA GHOSHAL</option>
+									<option value="4">SONU NIGAM</option>
+									<option value="5">SUKHWINDER SINGH</option>
+									<option value="0">SUNIDHI CHAUHAN</option>
+									<option value="1">TAYLOR SWIFT</option>
+									<option value="2">UDIT NARAYAN</option>
+									<option value="3">USHA MANGESHKAR</option>
+									<option value="4">VAISHALI SAMANT</option>
+									<option value="5">YO YO HONEY SINGH</option>
+									
+								</select>
+								<input type="submit" value="Start Prediction">
+							</form>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-8" style="padding: 0.5%">
+							<div class="card">
+								<h2>Rainfall in year {{year|safe}}</h2>
+								<hr style="margin: 1%">
+								<div id="BarGraph" style="width: 100%;">
+									<script type="text/javascript">
+										var xaxis = {{ xvalues|safe }}
+										console.log(xaxis)
+										var yaxis = {{yvalues|safe}}
+										console.log(yaxis)
+										var data = [
+										  {
+										    x: xaxis,
+										    y: yaxis,
+										    type: 'bar'
+										  }
+										]
+										var layout = {
+											autosize: false,				
+											width: 700,
+											height: 300,
+											margin: {
+										    	l: 60,
+										    	r: 20,
+										    	b: 50,
+										    	t: 10,
+										    	pad: 4
+										  	},
+											title: {
+												font: {
+													size: 10,
+													weight: 'bold'
+												},
+												xref: 'paper',
+							    				x: 0.5,
+											},
+											xaxis: {
+												title: {
+													text: 'Months',	
+												},
+											},
+											yaxis: {
+												title: {
+													text: 'Rainfall in (mm)',
+												},
+											}
+										}
+
+										Plotly.newPlot('BarGraph', data, layout);
+									</script>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4" style="padding: 0.5%">
+							<div class="card">
+							<div id="myDiv" style="width: 100%;">
+									<script type="text/javascript">
+										var xaxis = {{ xvalues|safe }}
+										console.log(xaxis)
+										var yaxis = {{yvalues|safe}}
+										console.log(yaxis)
+										var data = [{
+                                                                                 values: yaxis,
+                                                                      labels: xaxis,
+                                                                      type: 'pie'
+                                                                                }];
+
+                                                                var layout = {
+                                                                  height: 400,
+                                                                  width: 500
+                                                                        };
+
+                                                            Plotly.newPlot('myDiv', data, layout);
+                                                            </script>
+
+								</div>
+                                                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body{background-image: url(H:/sdl/songs/Black-Fender-Bass-Guitar-1600x1200.jpg); background-size:500px 500px;}
+	</style>
+    <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    	<div id="mydiv4">	</div>
+				<script type="text/javascript">
+					var x = {{a|safe}}
+					var y = {{b|safe}}
+					console.log(x);
+					console.log(y);
+					var data = [
+					  { 
+					    x: x,
+					    y: y,
+					    type:'bar'
+					   
+					  }
+
+					];
+					var layout = {
+					  autosize: false,
+					  width: 400
+
+					};
+					Plotly.newPlot("mydiv4", data, layout);
+				</script>
+</head>
+<body>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+							</div> 
+	
+	</div>
+</body>
+</html>
+

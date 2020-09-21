@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-6">
+				<div id="myDiv" style="border:1px solid grey"></div>
+				<script type="text/javascript">
+					var x = {{c|safe}}
+					var y = {{d|safe}}
+					console.log(x);
+					console.log(y);
+					var data = [
+					  {
+					    values: x,
+					    labels: y,
+					    type:'pie'
+					  }
+					];
+					var layout = {
+					  autosize: false,
+					  width: 400
+					};
+					Plotly.newPlot("myDiv", data, layout);
+				</script>
+					<div id="myDiv3"></div>
+				<script type="text/javascript">
+					var x={{f|safe}}
+					console.log(x);
+					var data2=[
+					{
+						x:x,
+						type:'histogram'
+					}];
+					var layout = {
+					  autosize: false,
+					  width: 400
+					};
+
+					Plotly.newPlot("myDiv3", data2, layout);
+				</script>		
+				<div id="mydiv4">	</div>
+				<script type="text/javascript">
+					var x = {{h|safe}}
+					var y = {{g|safe}}
+					console.log(x);
+					console.log(y);
+					var data = [
+					  { 
+					    x: x,
+					    y: y,
+					    type:'bar'
+					   
+					  }
+
+					];
+					var layout = {
+					  autosize: false,
+					  width: 400
+
+					};
+					Plotly.newPlot("mydiv4", data, layout);
+				</script>
+			</div>
+			<div class="col-sm-6">
+				<div id="myDiv2"></div>
+				<script type="text/javascript">
+					var x = {{a|safe}}
+					var y = {{b|safe}}
+					console.log(x);
+					console.log(y);
+					var data1 = [
+					  {
+					    x: x,
+					    y: y,
+					     marker:{
+    color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)', 'rgba(60, 233, 24,1)', 'rgba(204,204,204,1)', 'rgba(204,204,204,1)']
+  },
+					    type:'bar'
+					  }
+					];
+					var layout = {
+					  autosize: false,
+					  width:400
+					};
+					
+					Plotly.newPlot("myDiv2", data1, layout);
+				</script>
+				<div id="myDiv5"></div>
+				<script type="text/javascript">
+					var x={{i|safe}}
+					var y={{j|safe}}
+					var z={{k|safe}}
+					var x1={{l|safe}}
+					var y1={{m|safe}}
+					var z1={{n|safe}}
+					console.log(x);
+					console.log(y);
+					console.log(z);
+					console.log(x1);
+					console.log(y1);
+					console.log(z1);
+					var data20=
+					{
+						x:['HINDI','PUNJABI','MARATHI','ENGLISH'],
+						y:x,
+						name: 'Love',
+						type:'bar'
+					};
+					var data21=
+					{
+						x:['HINDI','PUNJABI','MARATHI','ENGLISH'],
+						y:y,
+						name:'life',
+						type:'bar'
+					};
+					var data22=
+					{
+						x:['HINDI','PUNJABI','MARATHI','ENGLISH'],
+						y:z,
+						name:'devotional',
+						type:'bar'
+					};
+					var data23=
+					{
+						x:['HINDI','PUNJABI','MARATHI','ENGLISH'],
+						y:x1,
+						name:'party',
+						type:'bar'
+					};
+					var data24=
+					{
+						x:['HINDI','PUNJABI','MARATHI','ENGLISH'],
+						y:y1,
+						name:'others',
+						type:'bar'
+					};
+					var data25=
+					{
+						x:['HINDI','PUNJABI','MARATHI','ENGLISH'],
+						y:z1,
+						name:'pop',
+						type:'bar'
+					};
+					var trace=[data20,data21,data22,data23,data24,data25];
+					var layout = {
+					  barmode:'stack'
+
+					};
+
+					Plotly.newPlot("myDiv5", trace, layout);
+				</script>
+				
+			</div>
+
+
+
+
+
+
+
+
+		<!-- 	<div class="col-sm-4">
+				<div id="myDiv3"></div>
+				<script type="text/javascript">
+					var x={{f|safe}}
+					console.log(x);
+					var data2=[
+					{
+						x:x,
+						type:'histogram'
+					}];
+					var layout = {
+					  autosize: false,
+					  width: 400
+					};
+
+					Plotly.newPlot("myDiv3", data2, layout);
+				</script>
+				
+		
+				
+			</div> -->
+	
+	</div>
+</body>
+</html>
+
+
